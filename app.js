@@ -93,13 +93,15 @@ const getFilterButtonList =() => {
         button.className="btn btn-outline-dark btn-item";
         button.innerText=item;
         button.id=item
+        button.onclick= () => getMenuList(button.id);
         container.append(button);
     })
 }
-const getMenuList = () => {
-
-    menu.forEach(item => {
-        const menuContainerTag = document.querySelector("#menuContainer");
+const getMenuList = (filter = "All") => {
+    const filteredMenu = filter === "All" ? menu : menu.filter(item => item.category === filter);
+    const menuContainerTag = document.querySelector("#menuContainer");
+    menuContainerTag.innerHTML=null
+    filteredMenu.forEach(item =>  {
         const menuContainer = document.createElement("div");
         menuContainer.className="menu-items col-lg-6 col-sm-12"
         menuContainerTag.append(menuContainer);
@@ -112,7 +114,12 @@ const getMenuList = () => {
         menuContainer.append(menuInfo);
         const menuTitle= document.createElement("div");
         menuTitle.className="menu-title"
-        menuTitle.innerHTML=item.title;
+        const title = document.createElement("h4")
+        title.innerHTML=item.title
+        const price = document.createElement("h4")
+        price.className="price";
+        price.innerHTML=item.price;
+        menuTitle.append(title,price);
         menuInfo.append(menuTitle);
         const menuText= document.createElement("div");
         menuText.className="menu-text"
