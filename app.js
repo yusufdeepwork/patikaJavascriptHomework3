@@ -81,3 +81,19 @@ const menu = [
         desc: `Red bean paste dessert, serving with honey.`,
     },
 ];
+
+const getFilterButtonList =() => {
+    let buttonNames = []
+    buttonNames.push("All")
+   menu.forEach(item =>  !buttonNames.includes(item.category) ? buttonNames.push(item.category): null)
+    console.log(buttonNames)
+    const container = document.getElementsByClassName("btn-container").namedItem("buttonContainer");
+    buttonNames.forEach(item => {
+        const button = document.createElement("button");
+        button.className="btn btn-outline-dark btn-item";
+        button.innerText=item;
+        button.id=item
+        container.append(button);
+    })
+
+}

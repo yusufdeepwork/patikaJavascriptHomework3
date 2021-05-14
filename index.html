@@ -19,15 +19,15 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body onload="getFilterButtonList()">
 <div class="container">
     <section class="menu">
         <!-- title -->
-        <div class="title">
-            <h2>Asian Kitchen's Menu</h2>
+        <div class="title" >
+            <h2 >Asian Kitchen's Menu</h2>
         </div>
         <!-- filter buttons-->
-        <div class="btn-container"></div>
+        <div class="btn-container" name="buttonContainer"></div>
         <!-- menu items -->
         <div class="section-center row">
             <!-- single-item -->
@@ -38,4 +38,5 @@
 </div>
 
 </body>
+<script src="app.js"></script>
 </html>
