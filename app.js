@@ -95,5 +95,28 @@ const getFilterButtonList =() => {
         button.id=item
         container.append(button);
     })
+}
+const getMenuList = () => {
 
+    menu.forEach(item => {
+        const menuContainerTag = document.querySelector("#menuContainer");
+        const menuContainer = document.createElement("div");
+        menuContainer.className="menu-items col-lg-6 col-sm-12"
+        menuContainerTag.append(menuContainer);
+        const photo = document.createElement("img");
+        photo.className="photo";
+        photo.src=item.img;
+        menuContainer.append(photo);
+        const menuInfo= document.createElement("div");
+        menuInfo.className="menu-info"
+        menuContainer.append(menuInfo);
+        const menuTitle= document.createElement("div");
+        menuTitle.className="menu-title"
+        menuTitle.innerHTML=item.title;
+        menuInfo.append(menuTitle);
+        const menuText= document.createElement("div");
+        menuText.className="menu-text"
+        menuText.innerText=item.desc
+        menuInfo.append(menuText);
+    })
 }

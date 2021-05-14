@@ -19,7 +19,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
 </head>
-<body onload="getFilterButtonList()">
+<body >
 <div class="container">
     <section class="menu">
         <!-- title -->
@@ -29,7 +29,7 @@
         <!-- filter buttons-->
         <div class="btn-container" name="buttonContainer"></div>
         <!-- menu items -->
-        <div class="section-center row">
+        <div class="section-center row" id="menuContainer">
             <!-- single-item -->
 
             <!-- end of single item -->
@@ -39,4 +39,9 @@
 
 </body>
 <script src="app.js"></script>
+<script>
+    document.body.onload = () => {
+    getFilterButtonList();
+    getMenuList();
+}</script>
 </html>
